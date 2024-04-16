@@ -1,0 +1,64 @@
+.grad--text {
+    background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+    background-clip: text;
+    color: transparent;
+}
+
+body {
+    background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+
+    font-family: "Rubik", sans-serif;
+    color: var(--body-color);
+    display: grid;
+    grid-template-columns: 1fr 325px;
+    align-items: start;
+    padding: 20px 5rem;
+}
+
+main {
+    padding: 0 2.5rem;
+}
+
+.caixa--vermelha {
+    height: 50px;
+    width: 50px;
+    background-color: rgb(187, 70, 70);
+}
+
+.transition {
+    transition: all 0.4s;
+}
+
+.paragrafo {
+    max-width: 768px;
+}
+
+.glossary {
+    padding: 0px 1.25rem;
+    background-color: #fefefe;
+    border: 1px solid #0969da;
+    border-radius: var(--radius);
+}
+
+h1 {
+    margin-bottom: 1.5rem;
+}
+
+p {
+    margin-bottom: .5rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+    margin-top: 1.25rem;
+}
+
+
+dt {
+    font-size: 1.125rem;
+}
+
+dd {
+    margin-bottom: 0.75rem;
+}

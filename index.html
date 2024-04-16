@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propriedades CSS mais comuns 🎨</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="vstyles.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="jawas.js" defer></script>
+</head>
+
+<body>
+    <main>
+        <h1>Portal CSS Properties!</h1>
+        <p>A linguagem CSS é escrita em <strong>Regras</strong> que são conjuntos de <span
+                class="css--prop">propriedades</span> e <span class="css--value">valores</span>.</p>
+        <p>Um dos grandes desafios para não falantes da lingua inglesa é saber o que cada propriedade e valor significam
+            em
+            português. Essa página servirá como um guia para te auxiliar a lembrar o significado das palavras e como
+            elas
+            afetam os elementos HTML.</p>
+
+        <hr>
+        <section class="width--height">
+            <h2>Propriedades de dimensões: Largura e Altura</h2>
+            <div class="code--snippet">
+                <pre>.caixa--vermelha {
+        <span class="property">width:</span> <input data-property="width"  data-target=".caixa--vermelha" class="input--code" id="input--width" type="text" value="50"><span class="unidade">px</span>
+        <span class="property">height:</span> <input data-property="height" data-target=".caixa--vermelha" value="50" type="text"><span class="unidade">px</span>
+        }</pre>
+            </div>
+            <div class="caixa--vermelha transition">
+            </div>
+        </section>
+        <section class="typefaces">
+            <h2>Propriedades de Fontes/Caracteres</h2>
+            <div class="code--snippet">
+                <pre>.paragrafo {
+        <span class="property">font-size: </span><input data-property="font-size" data-target=".paragrafo" type="text"><span class="unidade">px</span>
+        <span class="property">font-weight: </span><input data-property="font-weight" data-target=".paragrafo" type="text">
+        <span class="property">line-height: </span><input data-property="line-height" data-target=".paragrafo" type="text">
+        <span class="property">color: </span><input data-property="color" data-target=".paragrafo" type="text">
+        }</pre>
+            </div>
+            <div class="paragrafo transition">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error veritatis facilis numquam quaerat
+                corporis
+                totam praesentium ducimus nostrum ut delectus, quasi nobis labore blanditiis a consequatur rerum! Ad,
+                quos
+                quaerat.
+            </div>
+        </section>
+    </main>
+    <aside class="glossary">
+        <h2>Tradução dos termos</h2>
+        <dl>
+            <dt>Width</dt>
+            <dd>Largura de um elemento.</dd>
+            <dt>Height</dt>
+            <dd>Altura de um elemento.</dd>
+            <dt>Font-size</dt>
+            <dd>Tamanho de fonte, afeta ícones e emojis também.</dd>
+            <dt>Font-weight</dt>
+            <dd>Peso da fonte, valores de 100 até 900.</dd>
+            <dt>Line-height</dt>
+            <dd>Altura da Linha, afeta a distância entre as linhas em um parágrafo.</dd>
+            <dt>Text-decoration</dt>
+            <dd>Decoração do texto, usado para criar ou remover underline, riscado.</dd>
+            <dt></dt>
+        </dl>
+    </aside>
+
+</body>
+
+</html>
