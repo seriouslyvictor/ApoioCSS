@@ -1,8 +1,12 @@
-let inputs = document.querySelectorAll("input");
+const inputs = document.querySelectorAll("input");
+const selects = document.querySelectorAll("select");
 const dts = document.querySelectorAll("dt");
 
 for (const input of inputs) {
-  input.addEventListener("input", alterarCaixa);
+  input.addEventListener("input", alterarElemento);
+}
+for (const select of selects) {
+  select.addEventListener("change", alterarElemento);
 }
 
 dts.forEach((dt) => {
@@ -14,7 +18,7 @@ dts.forEach((dt) => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  function setInputDefaults() {
+  function definirDefaults() {
     document.querySelectorAll(".code--snippet input").forEach((input) => {
       const property = input.dataset.property;
       const targetSelector = input.dataset.target;
@@ -31,36 +35,53 @@ document.addEventListener("DOMContentLoaded", function () {
       input.value = style[property].replace(unit, "");
     });
   }
-  setInputDefaults();
+  definirDefaults();
 });
 
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".code--snippet input").forEach((input) => {
-    adjustInputWidth(input);
-    input.addEventListener("input", () => adjustInputWidth(input));
+    ajustarTamanhoInputs(input);
+    input.addEventListener("input", () => ajustarTamanhoInputs(input));
   });
 });
 
-function adjustInputWidth(input) {
+function ajustarTamanhoInputs(input) {
   const size = input.value.length;
   input.style.width = `${size + 1.5}ch`;
 }
 
-function alterarCaixa(e) {
+function alterarElemento(e) {
   const target = e.target;
   const property = target.dataset.property;
   const resultados = target.dataset.target;
   const valor = target.value;
   let unit = "";
+
+  // Handle units for input fields associated with a unit span
   if (
     target.nextElementSibling &&
-    target.nextElementSibling?.classList.contains("unidade")
+    target.nextElementSibling.classList.contains("unidade")
   ) {
     unit = target.nextElementSibling.textContent;
-  } else {
-    unit = "";
   }
 
+  // Select the target element based on the data-target attribute
   const el = document.querySelector(resultados);
+  if (!el) {
+    console.error("No element found with selector: ", resultados);
+    return;
+  }
+
+  // Apply the style change
   el.style[property] = valor + unit;
 }
+
+// Adding event listeners for both inputs and selects on document ready
+document.addEventListener("DOMContentLoaded", function () {
+  const elements = document.querySelectorAll(
+    "input[data-property], select[data-property]"
+  );
+  elements.forEach((element) => {
+    element.addEventListener("change", alterarElemento);
+  });
+});

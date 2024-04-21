@@ -12,14 +12,18 @@
         rel="stylesheet">
     <link rel="stylesheet" href="vstyles.css">
     <link rel="stylesheet" href="style.css">
+    <script src="autoformatter.js" defer></script>
     <script src="jawas.js" defer></script>
 </head>
 
 <body>
+    <nav class="topicos">
+
+    </nav>
     <main>
         <h1>Portal CSS Properties!</h1>
         <p>A linguagem CSS é escrita em <strong>Regras</strong> que são conjuntos de <span
-                class="css--prop">propriedades</span> e <span class="css--value">valores</span>.</p>
+                class="property">propriedades</span> e <span class="css-value">valores</span>.</p>
         <p>Um dos grandes desafios para não falantes da lingua inglesa é saber o que cada propriedade e valor significam
             em
             português. Essa página servirá como um guia para te auxiliar a lembrar o significado das palavras e como
@@ -29,25 +33,35 @@
         <hr>
         <section class="width--height">
             <h2>Propriedades de dimensões: Largura e Altura</h2>
-            <div class="code--snippet">
-                <pre>.caixa--vermelha {
-        <span class="property">width:</span> <input data-property="width"  data-target=".caixa--vermelha" class="input--code" id="input--width" type="text" value="50"><span class="unidade">px</span>
-        <span class="property">height:</span> <input data-property="height" data-target=".caixa--vermelha" value="50" type="text"><span class="unidade">px</span>
-        }</pre>
-            </div>
+
+            <code class="code--snippet">
+            <pre><span class="selector">.caixa--vermelha</span> {
+    <span class="property">width:</span> <input data-property="width"  data-target=".caixa--vermelha" class="input--code" id="input--width" type="text" value="50"><span class="unidade">px</span>;
+    <span class="property">height:</span> <input data-property="height" data-target=".caixa--vermelha" value="50" type="text"><span class="unidade">px</span>;
+    }
+            </pre>
+            </code>
+
             <div class="caixa--vermelha transition">
             </div>
         </section>
         <section class="typefaces">
             <h2>Propriedades de Fontes/Caracteres</h2>
-            <div class="code--snippet">
+            <code class="code--snippet">
                 <pre>.paragrafo {
-        <span class="property">font-size: </span><input data-property="font-size" data-target=".paragrafo" type="text"><span class="unidade">px</span>
-        <span class="property">font-weight: </span><input data-property="font-weight" data-target=".paragrafo" type="text">
-        <span class="property">line-height: </span><input data-property="line-height" data-target=".paragrafo" type="text">
-        <span class="property">color: </span><input data-property="color" data-target=".paragrafo" type="text">
-        }</pre>
-            </div>
+        font-size:<input data-property="font-size" data-target=".paragrafo" type="text">px;
+        font-weight:<input data-property="font-weight" data-target=".paragrafo" type="text">;
+        line-height:<input data-property="line-height" data-target=".paragrafo" type="text">;
+        color:<input data-property="color" data-target=".paragrafo" type="text">;
+        text-decoration: <select data-property="text-decoration" data-target=".paragrafo" name="text-deco" id="text-deco">
+            <option value="none">None</option>
+            <option value="underline">Underline</option>
+            <option value="overline">Overline</option>
+            <option value="line-through">line-through</option>
+        </select>;
+        }
+        </pre>
+            </code>
             <div class="paragrafo transition">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error veritatis facilis numquam quaerat
                 corporis
@@ -72,7 +86,6 @@
             <dd>Altura da Linha, afeta a distância entre as linhas em um parágrafo.</dd>
             <dt>Text-decoration</dt>
             <dd>Decoração do texto, usado para criar ou remover underline, riscado.</dd>
-            <dt></dt>
         </dl>
     </aside>
 

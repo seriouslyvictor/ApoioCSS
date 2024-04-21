@@ -15,14 +15,47 @@
 
 
 
-pre {
-  padding: 12px 6px;
+code {
+  display: block;
+  /* padding: 12px 6px; */
   color: #fefefe;
   background-color: #1b1b1b;
   border-radius: var(--radius);
   font-family: var(--code);
-  margin-bottom: .75rem;
-  margin-top: .75rem;
+  margin-bottom: 1.5rem;
+  margin-top: 2.5rem;
+  position: relative;
+}
+
+code::before {
+  content: "🔴🟡🟢";
+  position: absolute;
+  width: 100%;
+  top: -28px;
+  left: 0;
+  background-color: #333;
+  border-radius: var(--radius) var(--radius) 0 0;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+code::after {
+  content: "CSS";
+  position: absolute;
+  width: fit-content;
+  font-style: italic;
+  top: -26px;
+  right: 0;
+  padding: 2px 8px;
+  color: hsl(25, 100%, 55%);
+  font-weight: 700;
+}
+
+pre {
+  font-family: inherit;
+  padding: 6px 12px;
+  background-color: inherit;
+  border-radius: 0 0 var(--radius) var(--radius);
 }
 
 .tag,
@@ -30,8 +63,9 @@ pre {
   color: red;
 }
 
-.attribute {
-  color: green;
+.attribute,
+.selector {
+  color: #A5E22E;
 }
 
 .value {
@@ -42,6 +76,9 @@ pre {
   color: hsl(182, 75%, 50%);
 }
 
+.css-value {
+  color: #8270e6;
+}
 
 input {
   border-radius: var(--radius);
