@@ -4,9 +4,14 @@
     color: transparent;
 }
 
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: linear-gradient(to right, #FFFFFF, #ECE9E6);
-
+    overflow-x: hidden;
     font-family: "Rubik", sans-serif;
     color: var(--body-color);
     display: grid;
@@ -17,7 +22,6 @@ body {
 }
 
 main {
-    max-height: 48rem;
     padding: 0 2.5rem;
 }
 
@@ -44,8 +48,6 @@ main {
     line-height: 1.5;
     font-weight: 500;
 }
-
-
 
 h1 {
     margin-bottom: 1.5rem;

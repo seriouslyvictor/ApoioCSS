@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const spans = document.querySelectorAll("aside span");
   const codeSelects = document.querySelectorAll(".code--snippet select");
   const dts = document.querySelectorAll("dt");
-  const icons = document.querySelectorAll("i");
+  const icons = document.querySelectorAll(".dock");
   // Handle dt elements and span creation
   dts.forEach((dt) => {
     const span = document.createElement("span");

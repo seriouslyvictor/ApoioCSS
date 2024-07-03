@@ -1,0 +1,10 @@
+@media (max-width: 56.25rem) {
+    .glossary {
+        position: absolute;
+        transform: translateX(200%)
+    }
+
+    .dock {
+        display: none;
+    }
+}

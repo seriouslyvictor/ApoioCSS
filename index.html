@@ -12,13 +12,23 @@
         href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="vstyles.css">
+    <link rel="stylesheet" href="nav.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="glossario.css">
+    <link rel="stylesheet" href="media.css">
     <script src="jawas.js" defer></script>
 </head>
 
 <body>
     <nav class="topicos">
+        <ul>
+
+            <li><i class="fa-solid fa-arrows-up-down fa-fw"></i> <a href="#dimensions">Dimensões</a></li>
+            <li><i class="fa-solid fa-font fa-fw"></i></i> <a href="#fontes">Fontes</a></li>
+            <li><i class="fa-solid fa-border-top-left fa-fw"></i> <a href="#borders">Bordas</a></li>
+            <li><i class="fa-solid fa-box fa-fw"></i> <a href="#margin">Margin e Padding</a></li>
+            <li><i class="fa-solid fa-compress fa-fw"></i></i> <a href="#box-sizing">Box-Sizing</a></li>
+        </ul>
 
     </nav>
     <main>
@@ -32,7 +42,7 @@
             afetam os elementos HTML.</p>
 
         <hr>
-        <section class="big width--height">
+        <section class="big width--height" id="dimensions">
             <h2>Propriedades de dimensões: Largura e Altura</h2>
 
             <code class="code--snippet">
@@ -46,7 +56,7 @@
             <div class="caixa--vermelha transition">
             </div>
         </section>
-        <section class="big typefaces">
+        <section class="big typefaces" id="fontes">
             <h2>Propriedades de Fontes/Caracteres</h2>
             <code class="code--snippet">
                 <pre>.paragrafo {
@@ -77,7 +87,7 @@
                 expedita.
             </div>
         </section>
-        <section class="big borders">
+        <section class="big borders" id="borders">
             <h2>Propriedades de Bordas</h2>
             <code class="code--snippet">
                 <pre>.caixa--azul {
@@ -96,7 +106,7 @@
             <div class="caixa--azul transition">
             </div>
         </section>
-        <section class="big box-model">
+        <section class="big box-model" id="margin">
             <h2>Propriedades do Box-Model: Margin e Padding</h2>
             <div class="wrapper--quadros">
                 <code class="code--snippet">
@@ -141,13 +151,13 @@
                 </div>
             </section>
         </section>
-        <section class="big box-model2">
+        <section class="big box-model2" id="box-sizing">
             <h2>Propriedades do Box-Model: Box-Sizing</h2>
             <p>Uma propriedade <strong>muito importante</strong>, define como o tamanho final dos elementos HTML é
                 calculado.</p>
             <p>Por padrão, o tamanho final do elemento é calculado somando largura e altura com padding e bordas, esse é
                 comportamento do valor <strong>content-box</strong>. Essa maneira de calcular o tamanho final dos
-                elementos torna difícil prever qual tamanho o elemento irá ter nas páginas, de como que muitos
+                elementos torna difícil prever qual tamanho o elemento terá nas páginas, de modo que muitos
                 desenvolvedores preferem o comportamento do valor <strong>box-sizing</strong>, onde padding e bordas não
                 são somados ao tamanho final do elemento.</p>
             <div class="wrapper--cards">
@@ -195,7 +205,7 @@
         </section>
     </main>
     <aside class="glossary">
-        <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+        <i class="fa-solid dock fa-up-right-and-down-left-from-center"></i>
         <h2>Tradução dos termos</h2>
         <dl>
             <dt>Width</dt>
