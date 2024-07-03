@@ -1,10 +1,66 @@
+const dataLoader = function () {
+  const elements = document.querySelectorAll(
+    ".code--snippet input, .code--snippet select"
+  );
+
+  elements.forEach((element) => {
+    // Get the previous sibling node which should be a text node
+    let prevNode = element.previousSibling;
+
+    // Ensure we're only processing text nodes and skipping any inadvertent white space or line breaks
+    while (prevNode && prevNode.nodeType !== Node.TEXT_NODE) {
+      prevNode = prevNode.previousSibling;
+    }
+
+    if (prevNode && prevNode.nodeType === Node.TEXT_NODE) {
+      const text = prevNode.textContent.trim();
+      const propertyName = text.match(/([a-z-]+)\s*:/i);
+
+      if (propertyName && propertyName[1]) {
+        element.setAttribute("data-property", propertyName[1]);
+      }
+    }
+  });
+};
+const autoFormatter = function () {
+  const codeBlocks = document.querySelectorAll(".code--snippet pre");
+
+  codeBlocks.forEach((block) => {
+    let html = block.innerHTML;
+
+    const selectorPattern = /(?<=\b|^|\s|\})([.#]?[\w-]+)(?=\s*\{)/g;
+    const propertyPattern = /(\b[a-z-]+)(?=\s*:)/gi;
+    const unitPattern =
+      /(\bpx|\bem|\brem|\b%|\bvh|\bvw|\bin|\bcm|\bmm|\bpt|\bpc|\bex|\bch|\bvmin|\bvmax)\b/g;
+
+    function wrapWithSpan(text, className) {
+      return text.replace(
+        new RegExp(text, "g"),
+        `<span class="${className}">$&</span>`
+      );
+    }
+
+    html = html.replace(selectorPattern, (match) =>
+      wrapWithSpan(match, "selector")
+    );
+    html = html.replace(propertyPattern, (match) =>
+      wrapWithSpan(match, "property")
+    );
+    html = html.replace(unitPattern, (match) => wrapWithSpan(match, "unidade"));
+
+    block.innerHTML = html;
+  });
+};
+
+document.addEventListener("DOMContentLoaded", dataLoader);
+document.addEventListener("DOMContentLoaded", autoFormatter);
 document.addEventListener("DOMContentLoaded", function () {
   // Ensure inputs and selects are queried after the DOM is fully loaded
   const codeInputs = document.querySelectorAll(".code--snippet input");
+  const spans = document.querySelectorAll("aside span");
   const codeSelects = document.querySelectorAll(".code--snippet select");
   const dts = document.querySelectorAll("dt");
   const icons = document.querySelectorAll("i");
-
   // Handle dt elements and span creation
   dts.forEach((dt) => {
     const span = document.createElement("span");
@@ -24,7 +80,16 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 1000);
     });
   });
-
+  function ajustarSpans() {
+    spans.forEach((s) => {
+      const propriedade = s.dataset.property;
+      const origem = s.dataset.target;
+      const el = document.querySelector(origem);
+      const css = window.getComputedStyle(el);
+      s.textContent = css[propriedade];
+    });
+  }
+  ajustarSpans();
   // Define and execute function to set default values for inputs
   function definirDefaults() {
     codeInputs.forEach((input) => {
@@ -41,7 +106,6 @@ document.addEventListener("DOMContentLoaded", function () {
         input.nextElementSibling &&
         input.nextElementSibling.classList.contains("unidade");
       let unit = usesUnits ? input.nextElementSibling.textContent : "";
-      console.log(unit);
       input.value = style[property].replace(unit, "");
     });
   }
@@ -53,6 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
     input.addEventListener("input", () => ajustarTamanhoInputs(input));
     input.addEventListener("input", alterarElemento);
     input.addEventListener("change", alterarElemento);
+    input.addEventListener("input", ajustarSpans);
     input.addEventListener("wheel", (e) => scrollInput(e));
   });
 

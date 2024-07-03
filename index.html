@@ -14,8 +14,6 @@
     <link rel="stylesheet" href="vstyles.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="glossario.css">
-    <script src="dataLoaders.js" defer></script>
-    <script src="autoformatter.js" defer></script>
     <script src="jawas.js" defer></script>
 </head>
 
@@ -155,7 +153,7 @@
             <div class="wrapper--cards">
                 <code class="code--snippet">
                     <pre>.card--esquerdo {
-    border:<input data-property="" data-target=".cesquerdo" type="text">;
+    border-width:<input data-property="" data-target=".cesquerdo" type="text">;
     padding:<input data-property="" data-target=".cesquerdo" type="text">;  
     box-sizing:<input data-property="" data-target=".cesquerdo" type="text">;  
     width:<input data-property="" data-target=".cesquerdo" type="text">;
@@ -165,7 +163,7 @@
                 </code>
                 <code class="code--snippet">
                     <pre>.card--direito {
-    border:<input data-property="" data-target=".cdireito" type="text">;
+    border-width:<input data-property="" data-target=".cdireito" type="text">;
     padding:<input data-property="" data-target=".cdireito" type="text">;  
     box-sizing:<input data-property="" data-target=".cdireito" type="text">;  
     width:<input data-property="" data-target=".cdireito" type="text">;
@@ -181,15 +179,16 @@
                         cupiditate voluptate eveniet repellat facilis! Saepe quia dolore unde reprehenderit sint
                         accusantium nam dignissimos nostrum ullam eaque.</p>
                     <button>Iniciar</button>
-                    <aside>Tamanho real: width:<span data-property=""> </span>+ padding:<span data-property=""></span> +
-                        border:<span data-property=""></span></aside>
+                    <aside>Tamanho real: width(<span data-property="width" data-target=".cesquerdo"> </span>)+
+                        padding(<span data-property="padding" data-target=".cesquerdo"></span>) +
+                        border(<span data-property="border-width" data-target=".cesquerdo"></span>)</aside>
                 </div>
                 <div class="card cdireito">
                     <h2>Curso JavaScript Completo</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, natus beatae excepturi dicta
                         cupiditate voluptate eveniet repellat facilis!.</p>
                     <button>Iniciar</button>
-                    <aside>Tamanho real: width</aside>
+                    <aside>Tamanho real: width(<span data-property="width" data-target=".cdireito"> </span>)</aside>
                 </div>
                 </div>
             </section>
