@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Propriedades CSS mais comuns 🎨</title>
+    <script src="https://kit.fontawesome.com/bcf72d1d5f.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -12,6 +13,8 @@
         rel="stylesheet">
     <link rel="stylesheet" href="vstyles.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="glossario.css">
+    <script src="dataLoaders.js" defer></script>
     <script src="autoformatter.js" defer></script>
     <script src="jawas.js" defer></script>
 </head>
@@ -35,9 +38,9 @@
             <h2>Propriedades de dimensões: Largura e Altura</h2>
 
             <code class="code--snippet">
-            <pre><span class="selector">.caixa--vermelha</span> {
-    <span class="property">width:</span> <input data-property="width"  data-target=".caixa--vermelha" class="input--code" id="input--width" type="text" value="50"><span class="unidade">px</span>;
-    <span class="property">height:</span> <input data-property="height" data-target=".caixa--vermelha" value="50" type="text"><span class="unidade">px</span>;
+            <pre>.caixa--vermelha</span> {
+        width:<input data-property="width"  data-target=".caixa--vermelha" class="input--code" id="input--width" type="text">;
+        height:<input data-property="height" data-target=".caixa--vermelha" type="text">;
     }
             </pre>
             </code>
@@ -49,43 +52,174 @@
             <h2>Propriedades de Fontes/Caracteres</h2>
             <code class="code--snippet">
                 <pre>.paragrafo {
-        font-size:<input data-property="font-size" data-target=".paragrafo" type="text">px;
+        color:<input data-property="color" data-target=".paragrafo" type="text">;
+        font-family:<select data-property="font-family" data-target=".paragrafo" name="font-family" id="font-family">
+            <option value="">Escolha uma fonte...</option>
+            <option value="arial">Arial</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="verdana">Verdana</option>
+        </select>;
+        font-size:<input data-property="font-size" data-target=".paragrafo" type="text">;
         font-weight:<input data-property="font-weight" data-target=".paragrafo" type="text">;
         line-height:<input data-property="line-height" data-target=".paragrafo" type="text">;
-        color:<input data-property="color" data-target=".paragrafo" type="text">;
         text-decoration: <select data-property="text-decoration" data-target=".paragrafo" name="text-deco" id="text-deco">
             <option value="none">None</option>
             <option value="underline">Underline</option>
             <option value="overline">Overline</option>
             <option value="line-through">line-through</option>
         </select>;
-        }
+        font: <input data-property="font" data-target=".paragrafo" type="text" value="500 16px/2 Rubik, sans-serif">;
+    }
         </pre>
             </code>
             <div class="paragrafo transition">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error veritatis facilis numquam quaerat
-                corporis
-                totam praesentium ducimus nostrum ut delectus, quasi nobis labore blanditiis a consequatur rerum! Ad,
-                quos
-                quaerat.
+                Altere o código acima e veja como eu sou modificado 😁. <br>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, sint cupiditate reiciendis mollitia harum
+                rerum perferendis odio quibusdam. Eaque possimus sunt, at incidunt eos voluptatibus fugiat amet sit quae
+                expedita.
             </div>
+        </section>
+        <section class="borders">
+            <h2>Propriedades de Bordas</h2>
+            <code class="code--snippet">
+                <pre>.caixa--azul {
+        border-color:<input data-property="border-color" data-target=".caixa--azul" type="text">;
+        border-width:<input data-property="border-width" data-target=".caixa--azul" type="text">;
+        border-style:<input data-property="border-style" data-target=".caixa--azul" type="text">;
+        border:<input data-property="border" data-target=".caixa--azul" type="text">;
+        border-top-left-radius: <input data-property="" data-target=".caixa--azul" type="text">;
+        border-top-right-radius: <input data-property="" data-target=".caixa--azul" type="text">;
+        border-bottom-left-radius: <input data-property="" data-target=".caixa--azul" type="text">;
+        border-bottom-right-radius: <input data-property="" data-target=".caixa--azul" type="text">;
+        border-radius: <input data-property="border-radius" data-target=".caixa--azul" type="text">;
+    }
+        </pre>
+            </code>
+            <div class="caixa--azul transition">
+            </div>
+        </section>
+        <section class="box-model">
+            <h2>Propriedades do Box-Model: Margin e Padding</h2>
+            <div class="wrapper--quadros">
+                <code class="code--snippet">
+                    <pre>.quadro--esquerdo {
+    padding-top:<input data-property="" data-target=".qesquerdo" type="text">;
+    padding-right:<input data-property="" data-target=".qesquerdo" type="text">;
+    padding-bottom:<input data-property="" data-target=".qesquerdo" type="text">;
+    padding-left:<input data-property="" data-target=".qesquerdo" type="text">;  
+    padding:<input data-property="" data-target=".qesquerdo" type="text">;  
+
+    margin-top:<input data-property="" data-target=".qesquerdo" type="text">;
+    margin-right:<input data-property="" data-target=".qesquerdo" type="text">
+    margin-bottom:<input data-property="" data-target=".qesquerdo" type="text">;
+    margin-left:<input data-property="" data-target=".qesquerdo" type="text">;
+    margin:<input data-property="" data-target=".qesquerdo" type="text" value="0px 0px 0px 0px">;
+}
+                    </pre>
+                </code>
+                <code class="code--snippet">
+                    <pre>.quadro--direito {
+    padding-top:<input data-property="" data-target=".qdireito" type="text">;
+    padding-right:<input data-property="" data-target=".qdireito" type="text">;
+    padding-bottom:<input data-property="" data-target=".qdireito" type="text">;
+    padding-left:<input data-property="" data-target=".qdireito" type="text">;
+    padding:<input data-property="" data-target=".qdireito" type="text">;  
+
+    margin-top:<input data-property="" data-target=".qdireito" type="text">;
+    margin-right:<input data-property="" data-target=".qdireito" type="text">
+    margin-bottom:<input data-property="" data-target=".qdireito" type="text">;
+    margin-left:<input data-property="" data-target=".qdireito" type="text">;
+    margin:<input data-property="" data-target=".qdireito" type="text">;
+}
+                    </pre>
+                </code>
+            </div>
+            <section class="quadros">
+                <div class="quadro qesquerdo transition">
+                    <img src="Assets/pintoresfamososmunch.jpg" alt="">
+                </div>
+                <div class="quadro qdireito transition">
+                    <img src="Assets/pintoresfamososmunch.jpg" alt="">
+                </div>
+            </section>
+        </section>
+        <section class="box-model2">
+            <h2>Propriedades do Box-Model: Box-Sizing</h2>
+            <div class="wrapper--cards">
+                <code class="code--snippet">
+                    <pre>.card--esquerdo {
+    border:<input data-property="" data-target=".cesquerdo" type="text">;
+    padding:<input data-property="" data-target=".cesquerdo" type="text">;  
+    box-sizing:<input data-property="" data-target=".cesquerdo" type="text">;  
+}
+                    </pre>
+                </code>
+                <code class="code--snippet">
+                    <pre>.card--direito {
+    border:<input data-property="" data-target=".cdireito" type="text">;
+    padding:<input data-property="" data-target=".cdireito" type="text">;  
+    box-sizing:<input data-property="" data-target=".cdireito" type="text">;  
+}
+                    </pre>
+                </code>
+            </div>
+            <section class="quadros">
+                <div class="card cesquerdo">
+                    <img src="Assets/pintoresfamososmunch.jpg" alt="">
+                </div>
+                <div class="card cdireito">
+                    <img src="Assets/pintoresfamososmunch.jpg" alt="">
+                </div>
+            </section>
         </section>
     </main>
     <aside class="glossary">
+        <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
         <h2>Tradução dos termos</h2>
         <dl>
             <dt>Width</dt>
             <dd>Largura de um elemento.</dd>
             <dt>Height</dt>
             <dd>Altura de um elemento.</dd>
+            <dt>Font-Family</dt>
+            <dd>Familia de fontes, lembre-se que mais de um valor pode ser inserido como um <em>fallback</em>.</dd>
             <dt>Font-size</dt>
             <dd>Tamanho de fonte, afeta ícones e emojis também.</dd>
             <dt>Font-weight</dt>
             <dd>Peso da fonte, valores de 100 até 900.</dd>
             <dt>Line-height</dt>
-            <dd>Altura da Linha, afeta a distância entre as linhas em um parágrafo.</dd>
+            <dd>Altura da Linha, valores em Pixels ou em <em>multiplos</em> (1.5, 2, 2.5...)</dd>
             <dt>Text-decoration</dt>
             <dd>Decoração do texto, usado para criar ou remover underline, riscado.</dd>
+            <dt>Border-Width</dt>
+            <dd>Largura da Borda de um elemento</dd>
+            <dt>Border-Style</dt>
+            <dd>Estilo da borda de um elemento (dashed, solid, groove...)</dd>
+            <dt>Border-Radius</dt>
+            <dd>Raio da borda de um elemento, arredondamento dos cantos.</dd>
+            <div class="container--direcoes">
+                <div class="cima">
+                    <dt>Top</dt>
+                    <dd>Cima ou Superior</dd>
+                </div>
+                <div class="direita">
+                    <dt>Right</dt>
+                    <dd>Direita</dd>
+                </div>
+                <div class="baixo">
+                    <dt>Bottom</dt>
+                    <dd>Baixo ou Inferior</dd>
+                </div>
+                <div class="esquerda">
+                    <dt>Left</dt>
+                    <dd>Esquerda</dd>
+                </div>
+            </div>
+            <dt>Padding</dt>
+            <dd>Acolchoamento, espaçamento <strong>interno</strong> dos elementos</dd>
+            <dt>Margin</dt>
+            <dd>Margem, <strong>distanciamento</strong> entre os elementos</dd>
+
         </dl>
     </aside>
 

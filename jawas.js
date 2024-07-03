@@ -1,25 +1,35 @@
-const inputs = document.querySelectorAll("input");
-const selects = document.querySelectorAll("select");
-const dts = document.querySelectorAll("dt");
-
-for (const input of inputs) {
-  input.addEventListener("input", alterarElemento);
-}
-for (const select of selects) {
-  select.addEventListener("change", alterarElemento);
-}
-
-dts.forEach((dt) => {
-  const span = document.createElement("span");
-  span.className = "grad--text";
-  span.textContent = dt.textContent;
-  dt.textContent = "";
-  dt.appendChild(span);
-});
-
 document.addEventListener("DOMContentLoaded", function () {
+  // Ensure inputs and selects are queried after the DOM is fully loaded
+  const codeInputs = document.querySelectorAll(".code--snippet input");
+  const codeSelects = document.querySelectorAll(".code--snippet select");
+  const dts = document.querySelectorAll("dt");
+  const icons = document.querySelectorAll("i");
+
+  // Handle dt elements and span creation
+  dts.forEach((dt) => {
+    const span = document.createElement("span");
+    span.className = "grad--text";
+    span.textContent = dt.textContent;
+    dt.textContent = "";
+    dt.appendChild(span);
+  });
+
+  icons.forEach((icon) => {
+    const container = icon.parentElement;
+    icon.addEventListener("click", () => {
+      icon.classList.add("fa-beat");
+      undockWindow(container);
+      setTimeout(() => {
+        icon.classList.remove("fa-beat");
+      }, 1000);
+    });
+  });
+
+  // Define and execute function to set default values for inputs
   function definirDefaults() {
-    document.querySelectorAll(".code--snippet input").forEach((input) => {
+    codeInputs.forEach((input) => {
+      if (input.hasAttribute("value")) return;
+
       const property = input.dataset.property;
       const targetSelector = input.dataset.target;
       const element = document.querySelector(targetSelector);
@@ -36,12 +46,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
   definirDefaults();
-});
 
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".code--snippet input").forEach((input) => {
+  // Adjust input sizes and set up event listeners for inputs
+  codeInputs.forEach((input) => {
     ajustarTamanhoInputs(input);
     input.addEventListener("input", () => ajustarTamanhoInputs(input));
+    input.addEventListener("input", alterarElemento);
+    input.addEventListener("change", alterarElemento);
+    input.addEventListener("wheel", (e) => scrollInput(e));
+  });
+
+  // If using selects, add relevant event listeners or actions here
+  codeSelects.forEach((select) => {
+    // ajustarTamanhoInputs(select);
+    select.addEventListener("input", () => ajustarTamanhoInputs(input));
+    select.addEventListener("input", alterarElemento);
+    select.addEventListener("change", alterarElemento);
   });
 });
 
@@ -76,12 +96,69 @@ function alterarElemento(e) {
   el.style[property] = valor + unit;
 }
 
-// Adding event listeners for both inputs and selects on document ready
-document.addEventListener("DOMContentLoaded", function () {
-  const elements = document.querySelectorAll(
-    "input[data-property], select[data-property]"
-  );
-  elements.forEach((element) => {
-    element.addEventListener("change", alterarElemento);
-  });
-});
+function scrollInput(e) {
+  e.preventDefault();
+  let input = e.target;
+  let currentValue = input.value.trim();
+  const valueParts = currentValue.match(/^(-?\d+)([a-z%]*)$/i);
+
+  if (!valueParts) return;
+
+  let numericValue = parseInt(valueParts[1], 10);
+  let unit = valueParts[2];
+
+  if (isNaN(numericValue)) return;
+
+  if (e.deltaY < 0) numericValue += 1;
+  else if (e.deltaY > 0) numericValue -= 1;
+
+  input.value = numericValue + unit;
+  input.dispatchEvent(new Event("input"));
+}
+
+function undockWindow(el) {
+  if (el.classList.contains("undocked")) {
+    dockWindow(el);
+  } else {
+    el.classList.add("undocked");
+    makeElementDraggable(el);
+  }
+}
+
+function dockWindow(el) {
+  el.classList.remove("undocked");
+  el.style.top = "";
+  el.style.left = "";
+  el.style.transform = "";
+}
+
+function makeElementDraggable(element) {
+  // Reset the position slightly to create a "pop" effect
+  element.style.left = "100px";
+  element.style.top = "100px";
+  element.onmousedown = function (e) {
+    e.preventDefault();
+    let shiftX = e.clientX - element.getBoundingClientRect().left;
+    let shiftY = e.clientY - element.getBoundingClientRect().top;
+
+    function moveAt(pageX, pageY) {
+      element.style.left = pageX - shiftX + "px";
+      element.style.top = pageY - shiftY + "px";
+    }
+
+    function onMouseMove(e) {
+      moveAt(e.pageX, e.pageY);
+    }
+
+    document.addEventListener("mousemove", onMouseMove);
+
+    element.onmouseup = function () {
+      document.removeEventListener("mousemove", onMouseMove);
+      element.onmouseup = null;
+    };
+  };
+
+  element.ondragstart = function () {
+    return false;
+  };
+}

@@ -1,0 +1,75 @@
+.glossary {
+    padding: 0px 1.25rem;
+    background-color: #fefefe;
+    border: 1px solid #0969da;
+    border-radius: var(--radius);
+    position: relative;
+}
+
+dt {
+    font-size: 1.125rem;
+}
+
+dd {
+    margin-bottom: 0.75rem;
+}
+
+i {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.undocked {
+    top: 100px;
+    left: 100px;
+    max-width: 25rem;
+    position: absolute;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.283);
+    cursor: move;
+    /* Indicates that the entire window can be dragged */
+    user-select: none;
+    /* Prevents text selection while dragging */
+    overflow: hidden;
+    /* Prevents resizing through content overflow */
+}
+
+.container--direcoes {
+    margin: 12px 0px 0px 0px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+        " . top . "
+        "left . right"
+        " . bottom . ";
+    gap: 8px;
+    justify-tracks: center;
+}
+
+.container--direcoes dd,
+.container--direcoes dt {
+    margin: 0;
+}
+
+.cima {
+    text-align: center;
+    grid-area: top;
+}
+
+.direita {
+    grid-area: right;
+}
+
+.baixo {
+    text-align: center;
+    grid-area: bottom;
+
+}
+
+.esquerda {
+    text-align: right;
+    grid-area: left;
+}
