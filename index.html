@@ -144,13 +144,22 @@
             </section>
         </section>
         <section class="big box-model2">
-            <!-- <h2>Propriedades do Box-Model: Box-Sizing</h2>
+            <h2>Propriedades do Box-Model: Box-Sizing</h2>
+            <p>Uma propriedade <strong>muito importante</strong>, define como o tamanho final dos elementos HTML é
+                calculado.</p>
+            <p>Por padrão, o tamanho final do elemento é calculado somando largura e altura com padding e bordas, esse é
+                comportamento do valor <strong>content-box</strong>. Essa maneira de calcular o tamanho final dos
+                elementos torna difícil prever qual tamanho o elemento irá ter nas páginas, de como que muitos
+                desenvolvedores preferem o comportamento do valor <strong>box-sizing</strong>, onde padding e bordas não
+                são somados ao tamanho final do elemento.</p>
             <div class="wrapper--cards">
                 <code class="code--snippet">
                     <pre>.card--esquerdo {
     border:<input data-property="" data-target=".cesquerdo" type="text">;
     padding:<input data-property="" data-target=".cesquerdo" type="text">;  
     box-sizing:<input data-property="" data-target=".cesquerdo" type="text">;  
+    width:<input data-property="" data-target=".cesquerdo" type="text">;
+    height:<input data-property="" data-target=".cesquerdo" type="text">;
 }
                     </pre>
                 </code>
@@ -159,18 +168,31 @@
     border:<input data-property="" data-target=".cdireito" type="text">;
     padding:<input data-property="" data-target=".cdireito" type="text">;  
     box-sizing:<input data-property="" data-target=".cdireito" type="text">;  
+    width:<input data-property="" data-target=".cdireito" type="text">;
+    height:<input data-property="" data-target=".cdireito" type="text">;
 }
                     </pre>
                 </code>
             </div>
-            <section class="quadros">
+            <section class="cards">
                 <div class="card cesquerdo">
-                    <img src="Assets/pintoresfamososmunch.jpg" alt="">
+                    <h2>Curso JavaScript Completo</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, natus beatae excepturi dicta
+                        cupiditate voluptate eveniet repellat facilis! Saepe quia dolore unde reprehenderit sint
+                        accusantium nam dignissimos nostrum ullam eaque.</p>
+                    <button>Iniciar</button>
+                    <aside>Tamanho real: width:<span data-property=""> </span>+ padding:<span data-property=""></span> +
+                        border:<span data-property=""></span></aside>
                 </div>
                 <div class="card cdireito">
-                    <img src="Assets/pintoresfamososmunch.jpg" alt="">
+                    <h2>Curso JavaScript Completo</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, natus beatae excepturi dicta
+                        cupiditate voluptate eveniet repellat facilis!.</p>
+                    <button>Iniciar</button>
+                    <aside>Tamanho real: width</aside>
                 </div>
-            </section> -->
+                </div>
+            </section>
         </section>
     </main>
     <aside class="glossary">

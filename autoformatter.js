@@ -1,4 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
+// document.addEventListener("DOMContentLoaded", () => {
+const autoFormatter = function () {
   const codeBlocks = document.querySelectorAll(".code--snippet pre");
 
   codeBlocks.forEach((block) => {
@@ -26,4 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     block.innerHTML = html;
   });
-});
+};
+
+document.addEventListener("DOMContentLoaded", autoFormatter);
